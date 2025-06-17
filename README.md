@@ -2,27 +2,24 @@
 
 ## Capstone Project - Department of Computer Engineering, Cebu Technological University - Main Campus
 
-This repository contains all components for the capstone project titled: "Comparative Analysis of Single-Site and Multi-Finger PPG Systems for Non-Invasive Glucose Estimation." The project involves developing a custom multi-finger PPG data acquisition system, training machine learning models on existing and newly collected data, and evaluating the efficacy of multi-finger approaches compared to single-site PPG for glucose estimation.
+This repository contains the full project for the research paper, "A Comparative Analysis of Single-Finger and Multi-Finger Fusion for Non-Invasive Glucose Estimation with an Adapted LightGBM Model". This study investigates whether using photoplethysmography (PPG) signals from multiple fingers, processed with an advanced machine learning model, can provide more accurate and reliable non-invasive glucose estimations than traditional single-finger methods.
 
 ## Project Components
 
 This project is organized into several key functional areas:
 
-- **`01_Data_Collection_Tool/`**: Contains the Python Tkinter application for data entry and device interfacing, along with the microcontroller firmware (ESP32/Arduino) for acquiring PPG signals from participants.
+- **`01_Data_Collection_Tool/`**: Contains the Python data collection application and firmware for the ESP32 microcontroller.
 
-- **`02_Machine_Learning_Mendeley/`**: Dedicated to the machine learning pipeline (data loading, preprocessing, feature extraction, LightGBM model training, and evaluation) developed using the existing public Mendeley PPG dataset to establish a single-site baseline model.
+- **`02_Machine_Learning_Mendeley/`**: Holds the machine learning pipeline used to train the baseline model on the public Mendeley PPG dataset.
 
 - **`03_Hardware_Interface_Development/`**: Houses all hardware design aspects, including schematics, component lists, and assembly notes for the custom multi-finger PPG acquisition device.
 
-- **`04_Collected_Data_Analysis/`**: Intended for storing the data collected by the custom system (`Collected_Data/` subfolder) and the scripts/notebooks for its processing, multi-finger fusion analysis, and performance evaluation against the baseline model or newly trained models.
+- **`04_Collected_Data_Analysis/`**: Includes scripts for processing and analyzing the data collected from the custom system, including the multi-finger fusion analysis.
 
-- **`docs/`**: Stores general project documentation such as the thesis manuscript, presentation slides, and research notes.
 
 ## General Workflow
 
-1.  **Baseline Model Training**: Use components in `02_Machine_Learning_Mendeley/` to train a glucose estimation model on the existing dataset.
-2.  **Hardware & Firmware Setup**: Assemble the device based on `03_Hardware_Interface_Development/` and flash firmware from `01_Data_Collection_Tool/firmware/`.
-3.  **Custom Data Collection**: Utilize the Tkinter app in `01_Data_Collection_Tool/app/` to collect new multi-finger PPG data.
-4.  **Analysis & Comparison**: Process and analyze the newly collected data using tools in `04_Collected_Data_Analysis/` to compare single-finger and multi-finger performance.
-
-Refer to specific `README.md` files within each main directory for more detailed instructions.
+1.  **Baseline Model Training**: Training a LightGBM machine learning model on a public single-finger PPG dataset to establish a performance benchmark.
+2.  **Custom Data Collection**: Building a multi-finger PPG data acquisition system and collecting a new dataset.
+3.  **Model Adaptation**: Fine-tuning the baseline model to work accurately with the new custom hardware, addressing a critical "domain shift" issue.
+4. **Comparative Analysis**: Evaluating the adapted model's performance on single-finger signals versus fused multi-finger signals to identify the superior approach
